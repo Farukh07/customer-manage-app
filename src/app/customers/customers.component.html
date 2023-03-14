@@ -1,0 +1,36 @@
+
+<div class="container">
+  <div>
+    <img style="width: 20px; height: 20px; display: inline-block; margin-right: 5px; margin-bottom: 8px;" src="./assets/images/customers.png" alt="">
+    <h4 style="margin-top: 15px; display: inline-block;">Customers</h4>
+  </div>
+  <div class="form-group" style="display: flex; float: left;">
+    <label for="filter">Filter:</label>
+    <input type="text" name="filter">
+  </div>
+  <button style="display: flex; float: right;" (click)="btnClick();">Add New Customer</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Address</th>
+        <th scope="col">City</th>
+        <th scope="col">State</th>
+        <th scope="col">Order Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <th scope="row"><img style="width: 30px; height: 30px;" [src]="customer.image" alt="" (click)="customerClick();"></th>
+        <td>{{ customer.firstName }}</td>
+        <td>{{ customer.lastName }}</td>
+        <td>{{ customer.address }}</td>
+        <td>{{ customer.city }}</td>
+        <td>{{ customer.state}}</td>
+        <td>{{ customer.orderTotal | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
